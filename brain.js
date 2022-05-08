@@ -212,26 +212,20 @@ let buttonMessaged = {
 case 'help':
 
 const hlp=`
- *U^I^U ♡ Konichiwa ${pushname} Senpai, I'm Mizuhara*
+ *U^I^U ♡ Greetings ${pushname} My Love💖, I'm Mizuhara*
 
 🎋 \`\`\`Here are my listed commands, Have fun in using them:-\`\`\`
 
-🈸 *GENERAL* 🈸
+🈸 _*GENERAL*_ 🈸
 
 \`\`\`🎯 profile
-
 🎯 rank
-
 🎯 exp
-
 🎯 delete
-
 🎯 help
-
+🎯 ping
 🎯 creator
-
 🎯 mods
-
 🎯 info\`\`\`
   
 ⛩️ *ANIME* ⛩️
@@ -634,8 +628,8 @@ case 'tourl': {
     break
     case 'promote': {
         if (!m.isGroup) m.reply(mess.group)
-                if (!isBotAdmins) m.reply(mess.botAdmin)
-                if (!isAdmins) m.reply(mess.admin)
+                if (!isBotAdmins) return m.reply(mess.botAdmin)
+                if (!isAdmins) return m.reply(mess.admin)
         let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
         await arus.groupParticipantsUpdate(m.chat, [users], 'promote')
          arus.sendMessage(m.chat,{text:`woh woh!! looks like someone promoted @${users.split("@")[0]}`,contextInfo: { mentionedJid: [users] }})
